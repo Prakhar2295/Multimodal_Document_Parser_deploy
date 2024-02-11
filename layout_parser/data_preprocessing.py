@@ -27,11 +27,11 @@ class image_preprocessing:
 			if rotate > 0:
 				timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
 				im_fixed = im.copy().rotate(rotate)
-				image_name = f"/rotated_img_dir/self.filename_rotated_{timestamp}.jpg"
+				image_name = f"rotated_img_dir/self.filename_rotated_{timestamp}.jpg"
 				im_fixed.save(image_name)
-				return True,image_name
+				return image_name
 			else:
-				return False
+				return self.filename
 
 	def check_skewness(self):
 		if self.filename is not None:
@@ -86,11 +86,11 @@ class image_preprocessing:
 
 			if angle[angle_m] > 0:
 				timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-				image_name = f"/skew_img_dir/self.filename_rotated_{timestamp}.jpg"
+				image_name = f"skew_img_dir/self.filename_rotated_{timestamp}.jpg"
 				cv2.imwrite(image_name,res)
-				return True,image_name
+				return image_name
 			else:
-				return False
+				return self.filename
 
 	def remove_watermarks(self):
 		if self.filename is not None:
@@ -122,7 +122,7 @@ class image_preprocessing:
 				os.mkdir("background_preprocess_dir")
 
 
-			image_name = f"/background_preprocess_dir/self.filename_rotated_{timestamp}.jpg"
+			image_name = f"background_preprocess_dir/self.filename_rotated_{timestamp}.jpg"
 			cv2.imwrite(image_name,bw)
 			return image_name
 

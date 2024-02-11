@@ -11,14 +11,14 @@ class data_preparation:
 		if self.filename is not None:
 			pdf = pdfium.PdfDocument(self.filename)
 			page = pdf.get_page(0)
-			pil_image = page.render(scale=300 / 25).to_pil()
+			pil_image = page.render(scale=300 / 100).to_pil()
 			timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
    
 			if not os.path.isdir("pdf_to_img"):
 				os.mkdir("pdf_to_img")
 
 			#image_name = f"/pdf_to_img/{self.filename[:-4]}.jpg"
-			image_name = f"/pdf_to_img/{self.filename[:-4]}_{timestamp}.jpg"
+			image_name = f"pdf_to_img/{self.filename[:-4]}_{timestamp}.jpg"
 			pil_image.save(image_name)
 			return image_name
    

@@ -5,16 +5,16 @@ from transformers import BertForTokenClassification, BertTokenizerFast
 
 MAX_LEN = 512
 EPOCHS = 4
-MODEL_PATH = 'bert_ner/Bert'
-TOKENIZER = BertTokenizerFast('bert_ner/Bert/vocab.txt', lowercase=True)
+MODEL_PATH = 'Bert'
+TOKENIZER = BertTokenizerFast('Bert/vocab.txt', lowercase=True)
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 #MAX_LEN = 512
 EPOCHS = 4
 DEVICE = torch.device("cpu")
 #MODEL_PATH = 'Bert'
-STATE_DICT = torch.load('bert_ner/Trained_NER_model/model_e10.tar', map_location=DEVICE)
-TOKENIZER = BertTokenizerFast('bert_ner/Bert/vocab.txt', lowercase=True)
+STATE_DICT = torch.load('Trained_NER_model/model_e10.tar', map_location=DEVICE)
+TOKENIZER = BertTokenizerFast('Bert/vocab.txt', lowercase=True)
 MODEL = BertForTokenClassification.from_pretrained(MODEL_PATH, state_dict=STATE_DICT['model_state_dict'], num_labels=9)
 
 label_list = ["CERTIFICATE_NO","ISSUED_DATE","ORDER_NO","PURCHASE_ORDER","SUPPLIER_NAME","CUSTOMER_NAME","PLATE_NO","O","MISC"]

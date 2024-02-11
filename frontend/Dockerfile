@@ -10,5 +10,5 @@ WORKDIR /opt/app
 
 RUN pip3 install -r requirements.txt
 
-CMD ["streamlit","run","streampdf.py"]
+CMD ["streamlit","run","streamlit_app.py"]
 
