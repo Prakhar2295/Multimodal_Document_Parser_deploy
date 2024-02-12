@@ -110,6 +110,7 @@ def prediction(image_path,model_path):
     
     
     df = pd.DataFrame(table_dict)
+    df_json = df.to_json(orient='records')
     f.write(f"dataframe: {df.shape}")
     f.close()
-    return df
+    return df_json

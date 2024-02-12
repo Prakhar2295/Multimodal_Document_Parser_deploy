@@ -53,9 +53,10 @@ def predict():
         
         
         df = prediction(image,model_path)
-        f.write(f"final_dataframe: {df.shape}")
+        #f.write(f"final_dataframe: {df.shape}")
         f.close()
-        return Response(f"dataframe: {df}")
+        #return Response(f"dataframe: {df}")
+        return jsonify(data=df)
     
     
 
